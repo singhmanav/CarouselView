@@ -49,9 +49,26 @@ struct CarouselView: View {
     VStack(spacing: 20) {
       carouselView
         .frame(maxHeight: 400)
+      PageControl(numberOfPages: images.count, currentPage: scrollId ?? 0)
     }
     .onAppear {
       scrollId = images.count / 2
+    }
+  }
+}
+
+struct PageControl: View {
+  let numberOfPages: Int
+  let currentPage: Int
+
+  var body: some View {
+    HStack(spacing: 6) {
+      ForEach(0..<numberOfPages, id: \.self) { index in
+        Circle()
+          .fill(index == currentPage ? Color.primary : Color.primary.opacity(0.3))
+          .frame(width: 8, height: 8)
+          .animation(.spring(response: 0.3, dampingFraction: 0.7), value: currentPage)
+      }
     }
   }
 }
