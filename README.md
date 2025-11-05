@@ -42,7 +42,6 @@ struct ContentView: View {
     var body: some View {
         VStack {
             CarouselView(images: carouselImages)
-                .frame(maxHeight: 400)
         }
     }
 }
