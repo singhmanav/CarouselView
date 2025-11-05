@@ -2,7 +2,7 @@
 
 ## Requirements
 
-- iOS 17.0+
+- iOS 18.0+
 - Xcode 16.0+
 - SwiftUI
 
